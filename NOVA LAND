@@ -1,0 +1,658 @@
+```html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA Studio | Creativity, Precision &amp; Impact</title>
+    <meta name="description" content="NOVA Studio is an independent creative digital studio focused on design, visual communication, and impactful digital experiences.">
+
+    <!-- Google Fonts: Inter for crisp Swiss-editorial typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    },
+                    colors: {
+                        nova: {
+                            black: '#080808',
+                            charcoal: '#141414',
+                            dark: '#1f1f1f',
+                            grey: '#666666',
+                            muted: '#999999',
+                            light: '#f5f5f5',
+                            border: '#e5e5e5',
+                        }
+                    },
+                    letterSpacing: {
+                        tightest: '-0.05em',
+                        widestPlus: '0.25em',
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body class="bg-white text-nova-black font-sans antialiased selection:bg-nova-black selection:text-white overflow-x-hidden">
+
+    <!-- ==================== 1. STICKY NAVIGATION ==================== -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-nova-border">
+        <nav class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 h-20 sm:h-24 flex items-center justify-between" aria-label="Primary Navigation">
+            <!-- Brand Mark -->
+            <a href="#home" class="flex items-center gap-3 group focus:outline-none">
+                <svg class="w-7 h-7 transition-transform duration-500 ease-out group-hover:rotate-90" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M50 0C50 27.6142 27.6142 50 0 50C27.6142 50 50 72.3858 50 100C50 72.3858 72.3858 50 100 50C72.3858 50 50 27.6142 50 0Z" fill="#080808"/>
+                </svg>
+                <span class="text-2xl font-black tracking-[0.25em] text-nova-black">NOVA</span>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex items-center gap-8 lg:gap-10">
+                <a href="#home" class="text-xs font-bold tracking-[0.18em] text-nova-black hover:opacity-50 transition-opacity py-2">HOME</a>
+                <a href="#services" class="text-xs font-bold tracking-[0.18em] text-nova-black hover:opacity-50 transition-opacity py-2">SERVICES</a>
+                <a href="#portfolio" class="text-xs font-bold tracking-[0.18em] text-nova-black hover:opacity-50 transition-opacity py-2">PORTFOLIO</a>
+                <a href="#about" class="text-xs font-bold tracking-[0.18em] text-nova-black hover:opacity-50 transition-opacity py-2">ABOUT</a>
+                <a href="#enquiry" class="text-xs font-bold tracking-[0.18em] text-nova-black hover:opacity-50 transition-opacity py-2">ENQUIRY</a>
+                <a href="#contact" class="text-xs font-bold tracking-[0.18em] border border-nova-black px-5 py-3 rounded-sm hover:bg-nova-black hover:text-white transition-colors duration-300">CONTACT</a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobileMenuBtn" type="button" class="md:hidden p-3 -mr-2 text-nova-black hover:bg-nova-light rounded-sm transition-colors focus:outline-none" aria-controls="mobileDrawer" aria-expanded="false" aria-label="Toggle navigation menu">
+                <!-- Hamburger Icon -->
+                <svg id="menuIconOpen" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="square" stroke-linejoin="miter" d="M3 7h18M3 12h18M3 17h18" />
+                </svg>
+                <!-- Close Icon -->
+                <svg id="menuIconClose" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="square" stroke-linejoin="miter" d="M6 6l12 12M6 18L18 6" />
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobileDrawer" class="hidden md:hidden bg-white border-b border-nova-border px-6 pt-4 pb-8 shadow-lg">
+            <div class="flex flex-col space-y-2">
+                <a href="#home" class="mobile-nav-link block py-3 text-sm font-bold tracking-[0.2em] border-b border-nova-border/60 hover:pl-2 transition-all">HOME</a>
+                <a href="#services" class="mobile-nav-link block py-3 text-sm font-bold tracking-[0.2em] border-b border-nova-border/60 hover:pl-2 transition-all">SERVICES</a>
+                <a href="#portfolio" class="mobile-nav-link block py-3 text-sm font-bold tracking-[0.2em] border-b border-nova-border/60 hover:pl-2 transition-all">PORTFOLIO</a>
+                <a href="#about" class="mobile-nav-link block py-3 text-sm font-bold tracking-[0.2em] border-b border-nova-border/60 hover:pl-2 transition-all">ABOUT</a>
+                <a href="#enquiry" class="mobile-nav-link block py-3 text-sm font-bold tracking-[0.2em] border-b border-nova-border/60 hover:pl-2 transition-all">ENQUIRY</a>
+                <div class="pt-4">
+                    <a href="#contact" class="mobile-nav-link block w-full text-center py-3.5 text-xs font-bold tracking-[0.2em] bg-nova-black text-white rounded-sm hover:bg-neutral-800 transition-colors">CONTACT</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ==================== 2. HERO SECTION ==================== -->
+        <section id="home" class="min-h-[calc(100vh-5rem)] sm:min-h-[680px] flex flex-col justify-center max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-20 sm:py-28">
+            <div class="max-w-5xl">
+                <div class="flex items-center gap-3 mb-7">
+                    <span class="inline-block w-8 h-[1px] bg-nova-black" aria-hidden="true"></span>
+                    <p class="text-[11px] font-bold tracking-[0.32em] text-nova-black uppercase">
+                        INDEPENDENT CREATIVE STUDIO
+                    </p>
+                </div>
+
+                <h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-[112px] font-black leading-[0.94] tracking-tightest text-nova-black uppercase">
+                    IDEAS INTO<br>
+                    <span class="text-neutral-400">IMPACT.</span>
+                </h1>
+
+                <p class="mt-8 sm:mt-10 max-w-xl text-base sm:text-lg text-nova-grey leading-relaxed font-normal">
+                    Welcome to NOVA Studio. We transform creative ideas into meaningful digital experiences through design, creativity and precision.
+                </p>
+
+                <div class="mt-10 sm:mt-12 flex flex-wrap items-center gap-4">
+                    <a href="#portfolio" class="px-8 py-4 bg-nova-black text-white text-xs font-bold tracking-[0.18em] rounded-sm hover:bg-neutral-800 transition-all duration-300">
+                        EXPLORE OUR WORK
+                    </a>
+                    <a href="#enquiry" class="px-8 py-4 border border-nova-black text-nova-black text-xs font-bold tracking-[0.18em] rounded-sm hover:bg-nova-black hover:text-white transition-all duration-300">
+                        PROJECT ENQUIRY
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 3. BRAND STATEMENT SECTION ==================== -->
+        <section class="bg-nova-black text-white py-24 sm:py-32 px-6 sm:px-10 lg:px-12">
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="text-[11px] font-bold tracking-[0.35em] text-nova-muted uppercase">
+                    THE NOVA STANDARD
+                </p>
+
+                <h2 class="mt-7 mb-8 text-3xl sm:text-5xl lg:text-[54px] font-extrabold leading-[1.18] tracking-tight">
+                    Creativity without limits.
+                    Precision in every detail.
+                    <span class="text-neutral-400">Impact that matters.</span>
+                </h2>
+
+                <div class="inline-flex items-center gap-3 pt-2">
+                    <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
+                        <path d="M50 0C50 27.6142 27.6142 50 0 50C27.6142 50 50 72.3858 50 100C50 72.3858 72.3858 50 100 50C72.3858 50 50 27.6142 50 0Z"/>
+                    </svg>
+                    <p class="text-xs font-semibold tracking-[0.3em] text-neutral-400 uppercase">
+                        CREATIVITY. PRECISION. IMPACT.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 4. SERVICES SECTION ==================== -->
+        <section id="services" class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-24 sm:py-32">
+            <div class="mb-14 sm:mb-16">
+                <p class="text-[11px] font-bold tracking-[0.32em] text-nova-grey uppercase">
+                    WHAT WE DO
+                </p>
+                <h2 class="mt-3 text-3xl sm:text-5xl font-black tracking-tight text-nova-black">
+                    Our Creative Services.
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Service 01 -->
+                <article class="group p-8 sm:p-10 border border-nova-border rounded-sm bg-white hover:border-nova-black hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between min-h-[260px]">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold tracking-[0.2em] text-nova-muted group-hover:text-nova-black transition-colors">01 / DESIGN</span>
+                        <span class="w-2 h-2 rounded-full bg-nova-border group-hover:bg-nova-black transition-colors" aria-hidden="true"></span>
+                    </div>
+                    <div class="mt-10">
+                        <h3 class="text-2xl font-bold tracking-tight text-nova-black mb-3">Graphic Design</h3>
+                        <p class="text-sm text-nova-grey leading-relaxed">
+                            Professional visual designs that communicate ideas, build identity and capture attention.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Service 02 -->
+                <article class="group p-8 sm:p-10 border border-nova-border rounded-sm bg-white hover:border-nova-black hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between min-h-[260px]">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold tracking-[0.2em] text-nova-muted group-hover:text-nova-black transition-colors">02 / DIGITAL</span>
+                        <span class="w-2 h-2 rounded-full bg-nova-border group-hover:bg-nova-black transition-colors" aria-hidden="true"></span>
+                    </div>
+                    <div class="mt-10">
+                        <h3 class="text-2xl font-bold tracking-tight text-nova-black mb-3">Digital Content</h3>
+                        <p class="text-sm text-nova-grey leading-relaxed">
+                            Creative digital content designed to communicate messages and engage audiences.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Service 03 -->
+                <article class="group p-8 sm:p-10 border border-nova-border rounded-sm bg-white hover:border-nova-black hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between min-h-[260px]">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold tracking-[0.2em] text-nova-muted group-hover:text-nova-black transition-colors">03 / CREATIVE</span>
+                        <span class="w-2 h-2 rounded-full bg-nova-border group-hover:bg-nova-black transition-colors" aria-hidden="true"></span>
+                    </div>
+                    <div class="mt-10">
+                        <h3 class="text-2xl font-bold tracking-tight text-nova-black mb-3">Creative Projects</h3>
+                        <p class="text-sm text-nova-grey leading-relaxed">
+                            Original concepts and creative solutions developed with purpose and attention to detail.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ==================== 5. PORTFOLIO SECTION ==================== -->
+        <section id="portfolio" class="bg-nova-light border-y border-nova-border py-24 sm:py-32 px-6 sm:px-10 lg:px-12">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-14 sm:mb-16 gap-4">
+                    <div>
+                        <p class="text-[11px] font-bold tracking-[0.32em] text-nova-grey uppercase">
+                            PORTFOLIO
+                        </p>
+                        <h2 class="mt-3 text-3xl sm:text-5xl font-black tracking-tight text-nova-black">
+                            Actual Designs &amp; Real Work.
+                        </h2>
+                    </div>
+                    <p class="text-xs font-semibold tracking-[0.18em] text-nova-grey uppercase">
+                        SELECTED ARCHIVE — 01–04
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+                    <!-- Portfolio Item 1 -->
+                    <article class="group bg-white border border-nova-border rounded-sm overflow-hidden hover:border-nova-black hover:-translate-y-1.5 transition-all duration-300 flex flex-col">
+                        <div class="relative h-72 bg-gradient-to-br from-[#080808] via-[#171717] to-[#2c2c2c] flex flex-col items-center justify-center p-8 overflow-hidden">
+                            <!-- Swiss Grid Hairlines -->
+                            <div class="absolute inset-0 opacity-15 pointer-events-none" style="background-image: linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px); background-size: 48px 48px;" aria-hidden="true"></div>
+                            <svg class="w-14 h-14 text-white transition-transform duration-500 group-hover:scale-110 group-hover:rotate-90" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
+                                <path d="M50 0C50 27.6142 27.6142 50 0 50C27.6142 50 50 72.3858 50 100C50 72.3858 72.3858 50 100 50C72.3858 50 50 27.6142 50 0Z"/>
+                            </svg>
+                            <span class="mt-4 text-[10px] font-bold tracking-[0.35em] text-neutral-400">IDENTITY SYSTEM 01</span>
+                        </div>
+                        <div class="p-8 sm:p-9 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] font-bold tracking-[0.2em] text-nova-grey uppercase">BRAND IDENTITY / LOGO</span>
+                                <h3 class="mt-2.5 mb-3 text-2xl font-bold tracking-tight text-nova-black">NOVA Star Visual System</h3>
+                                <p class="text-sm text-nova-grey leading-relaxed mb-7">
+                                    The official brand language developed for NOVA Studio, featuring custom star typography, minimalist geometry, and robust high-contrast aesthetics.
+                                </p>
+                            </div>
+                            <div>
+                                <a href="#enquiry" data-service="Graphic Design" class="inquire-similar-btn inline-flex items-center gap-2 px-5 py-3 border border-nova-black text-nova-black text-[11px] font-bold tracking-[0.18em] rounded-sm hover:bg-nova-black hover:text-white transition-colors">
+                                    <span>INQUIRE SIMILAR</span>
+                                    <span aria-hidden="true">&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Portfolio Item 2 -->
+                    <article class="group bg-white border border-nova-border rounded-sm overflow-hidden hover:border-nova-black hover:-translate-y-1.5 transition-all duration-300 flex flex-col">
+                        <div class="relative h-72 bg-gradient-to-br from-[#141414] to-[#262626] flex flex-col items-center justify-center p-8 overflow-hidden">
+                            <!-- Minimal Wireframe Graphic -->
+                            <div class="w-48 h-28 border border-white/25 rounded-sm p-3 flex flex-col justify-between transition-transform duration-500 group-hover:scale-105" aria-hidden="true">
+                                <div class="flex items-center justify-between border-b border-white/15 pb-2">
+                                    <span class="w-2 h-2 rounded-full bg-white"></span>
+                                    <span class="w-10 h-1 bg-white/40"></span>
+                                </div>
+                                <div class="space-y-1.5">
+                                    <div class="w-3/4 h-2 bg-white/80"></div>
+                                    <div class="w-1/2 h-1.5 bg-white/30"></div>
+                                </div>
+                            </div>
+                            <span class="mt-5 text-[11px] font-light tracking-[0.35em] text-white uppercase">DIGITAL EXPERIENCE</span>
+                        </div>
+                        <div class="p-8 sm:p-9 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] font-bold tracking-[0.2em] text-nova-grey uppercase">UI / WEB DESIGN</span>
+                                <h3 class="mt-2.5 mb-3 text-2xl font-bold tracking-tight text-nova-black">Minimalist Portfolio Interface</h3>
+                                <p class="text-sm text-nova-grey leading-relaxed mb-7">
+                                    A high-performance, clean digital portfolio layout built to highlight creative work with maximum clarity and zero visual clutter.
+                                </p>
+                            </div>
+                            <div>
+                                <a href="#enquiry" data-service="Creative Project" class="inquire-similar-btn inline-flex items-center gap-2 px-5 py-3 border border-nova-black text-nova-black text-[11px] font-bold tracking-[0.18em] rounded-sm hover:bg-nova-black hover:text-white transition-colors">
+                                    <span>INQUIRE SIMILAR</span>
+                                    <span aria-hidden="true">&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Portfolio Item 3 -->
+                    <article class="group bg-white border border-nova-border rounded-sm overflow-hidden hover:border-nova-black hover:-translate-y-1.5 transition-all duration-300 flex flex-col">
+                        <div class="relative h-72 bg-gradient-to-br from-[#0c0c0c] to-[#222222] flex flex-col items-center justify-center p-8 overflow-hidden">
+                            <!-- Swiss Typographic Specimen Graphic -->
+                            <div class="text-center transition-transform duration-500 group-hover:scale-105" aria-hidden="true">
+                                <div class="text-5xl font-black tracking-tighter text-white/90 leading-none">Aa / 03</div>
+                                <div class="w-24 h-[1px] bg-white/30 mx-auto my-3"></div>
+                            </div>
+                            <span class="text-[11px] font-light tracking-[0.35em] text-white uppercase">VISUAL COMMUNICATION</span>
+                        </div>
+                        <div class="p-8 sm:p-9 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] font-bold tracking-[0.2em] text-nova-grey uppercase">GRAPHIC DESIGN</span>
+                                <h3 class="mt-2.5 mb-3 text-2xl font-bold tracking-tight text-nova-black">Editorial &amp; Print Layouts</h3>
+                                <p class="text-sm text-nova-grey leading-relaxed mb-7">
+                                    Curated print layouts and visual graphics combining strict typographic hierarchy with modern grid systems for impactful brand storytelling.
+                                </p>
+                            </div>
+                            <div>
+                                <a href="#enquiry" data-service="Graphic Design" class="inquire-similar-btn inline-flex items-center gap-2 px-5 py-3 border border-nova-black text-nova-black text-[11px] font-bold tracking-[0.18em] rounded-sm hover:bg-nova-black hover:text-white transition-colors">
+                                    <span>INQUIRE SIMILAR</span>
+                                    <span aria-hidden="true">&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Portfolio Item 4 -->
+                    <article class="group bg-white border border-nova-border rounded-sm overflow-hidden hover:border-nova-black hover:-translate-y-1.5 transition-all duration-300 flex flex-col">
+                        <div class="relative h-72 bg-gradient-to-br from-[#121212] to-[#303030] flex flex-col items-center justify-center p-8 overflow-hidden">
+                            <!-- Modular Content Blocks Graphic -->
+                            <div class="grid grid-cols-3 gap-2 w-40 mb-4 transition-transform duration-500 group-hover:scale-105" aria-hidden="true">
+                                <div class="h-12 border border-white/30 bg-white/5"></div>
+                                <div class="h-12 border border-white/60 bg-white/15"></div>
+                                <div class="h-12 border border-white/30 bg-white/5"></div>
+                            </div>
+                            <span class="text-[11px] font-light tracking-[0.35em] text-white uppercase">CONTENT SYSTEMS</span>
+                        </div>
+                        <div class="p-8 sm:p-9 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] font-bold tracking-[0.2em] text-nova-grey uppercase">DIGITAL CONTENT</span>
+                                <h3 class="mt-2.5 mb-3 text-2xl font-bold tracking-tight text-nova-black">Creative Direction &amp; Assets</h3>
+                                <p class="text-sm text-nova-grey leading-relaxed mb-7">
+                                    End-to-end creative digital deliverables engineered to engage audiences across multiple online touchpoints with consistent precision.
+                                </p>
+                            </div>
+                            <div>
+                                <a href="#enquiry" data-service="Digital Content" class="inquire-similar-btn inline-flex items-center gap-2 px-5 py-3 border border-nova-black text-nova-black text-[11px] font-bold tracking-[0.18em] rounded-sm hover:bg-nova-black hover:text-white transition-colors">
+                                    <span>INQUIRE SIMILAR</span>
+                                    <span aria-hidden="true">&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 6. ABOUT SECTION ==================== -->
+        <section id="about" class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-24 sm:py-32">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                <div class="lg:col-span-5">
+                    <p class="text-[11px] font-bold tracking-[0.32em] text-nova-grey uppercase">
+                        WHO WE ARE
+                    </p>
+                    <h2 class="mt-4 text-4xl sm:text-6xl font-black leading-[1.05] tracking-tight text-nova-black">
+                        More than<br>
+                        just design.
+                    </h2>
+                    <div class="mt-8 w-16 h-1 bg-nova-black" aria-hidden="true"></div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6 text-base sm:text-lg text-nova-grey leading-relaxed">
+                    <p class="text-nova-black font-medium text-lg sm:text-xl leading-relaxed">
+                        NOVA Studio is an independent creative brand built around the power of ideas and visual communication.
+                    </p>
+                    <p>
+                        Our approach combines creativity, precision and a commitment to producing work with purpose and impact.
+                    </p>
+                    <p>
+                        We believe every great creation starts with an idea. Our mission is to bring those ideas to life.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 7. PROJECT ENQUIRY SECTION ==================== -->
+        <section id="enquiry" class="bg-nova-light border-y border-nova-border py-24 sm:py-32 px-6 sm:px-10 lg:px-12">
+            <div class="max-w-2xl mx-auto bg-white border border-nova-border rounded-sm p-8 sm:p-12 shadow-sm">
+                <p class="text-[11px] font-bold tracking-[0.32em] text-nova-grey uppercase">
+                    START A PROJECT
+                </p>
+                <h2 class="mt-3 text-3xl sm:text-4xl font-black tracking-tight text-nova-black">
+                    Project Enquiry
+                </h2>
+                <p class="mt-3 text-sm text-nova-grey leading-relaxed">
+                    Tell us about your goals and vision. Fill out the form below and we will get back to you promptly.
+                </p>
+
+                <!-- Enquiry Form -->
+                <form id="enquiryForm" class="mt-8 space-y-6" novalidate>
+                    <div>
+                        <label for="clientName" class="block text-[11px] font-bold tracking-[0.18em] text-nova-black uppercase mb-2">
+                            YOUR NAME / ORGANIZATION
+                        </label>
+                        <input
+                            type="text"
+                            id="clientName"
+                            name="clientName"
+                            required
+                            placeholder="e.g. Alex Mercer / Studio Arc"
+                            class="w-full px-4 py-3.5 text-sm border border-nova-border rounded-sm bg-white text-nova-black placeholder:text-neutral-400 focus:outline-none focus:border-nova-black transition-colors"
+                        >
+                    </div>
+
+                    <div>
+                        <label for="clientEmail" class="block text-[11px] font-bold tracking-[0.18em] text-nova-black uppercase mb-2">
+                            EMAIL ADDRESS
+                        </label>
+                        <input
+                            type="email"
+                            id="clientEmail"
+                            name="clientEmail"
+                            required
+                            placeholder="name@example.com"
+                            class="w-full px-4 py-3.5 text-sm border border-nova-border rounded-sm bg-white text-nova-black placeholder:text-neutral-400 focus:outline-none focus:border-nova-black transition-colors"
+                        >
+                    </div>
+
+                    <div>
+                        <label for="projectType" class="block text-[11px] font-bold tracking-[0.18em] text-nova-black uppercase mb-2">
+                            PROJECT TYPE
+                        </label>
+                        <div class="relative">
+                            <select
+                                id="projectType"
+                                name="projectType"
+                                required
+                                class="w-full px-4 py-3.5 text-sm border border-nova-border rounded-sm bg-white text-nova-black appearance-none focus:outline-none focus:border-nova-black transition-colors"
+                            >
+                                <option value="" disabled selected>Select a service</option>
+                                <option value="Graphic Design">Graphic Design &amp; Branding</option>
+                                <option value="Digital Content">Digital Content &amp; Assets</option>
+                                <option value="Creative Project">Custom Creative Project</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-nova-black" aria-hidden="true">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="square" d="M6 9l6 6 6-6" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="projectDetails" class="block text-[11px] font-bold tracking-[0.18em] text-nova-black uppercase mb-2">
+                            PROJECT DETAILS
+                        </label>
+                        <textarea
+                            id="projectDetails"
+                            name="projectDetails"
+                            required
+                            rows="5"
+                            placeholder="Describe your project, timeline, and objectives..."
+                            class="w-full px-4 py-3.5 text-sm border border-nova-border rounded-sm bg-white text-nova-black placeholder:text-neutral-400 focus:outline-none focus:border-nova-black transition-colors resize-y"
+                        ></textarea>
+                    </div>
+
+                    <!-- Inline Validation Feedback -->
+                    <p id="formError" class="hidden text-xs font-semibold text-red-600 tracking-wide" role="alert"></p>
+
+                    <button
+                        type="submit"
+                        class="w-full py-4 bg-nova-black text-white text-xs font-bold tracking-[0.2em] uppercase rounded-sm hover:bg-neutral-800 transition-colors cursor-pointer"
+                    >
+                        SUBMIT ENQUIRY
+                    </button>
+                </form>
+
+                <!-- Interactive Confirmation State -->
+                <div id="enquiryConfirmation" class="hidden mt-8 p-8 bg-nova-black text-white rounded-sm" role="status" aria-live="polite">
+                    <div class="flex items-center gap-3 mb-4">
+                        <svg class="w-5 h-5 text-white shrink-0" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
+                            <path d="M50 0C50 27.6142 27.6142 50 0 50C27.6142 50 50 72.3858 50 100C50 72.3858 72.3858 50 100 50C72.3858 50 50 27.6142 50 0Z"/>
+                        </svg>
+                        <span class="text-xs font-bold tracking-[0.25em] uppercase text-neutral-300">ENQUIRY RECEIVED</span>
+                    </div>
+                    <h3 class="text-2xl font-bold tracking-tight mb-2">Thank you, <span id="confirmedName">Client</span>.</h3>
+                    <p class="text-sm text-neutral-300 leading-relaxed mb-6">
+                        Your enquiry regarding <strong id="confirmedService" class="text-white font-semibold">Creative Services</strong> has been logged. NOVA Studio will review your brief and respond to <span id="confirmedEmail" class="underline text-white"></span> shortly.
+                    </p>
+                    <button
+                        type="button"
+                        id="resetEnquiryBtn"
+                        class="px-6 py-3 border border-white text-white text-[11px] font-bold tracking-[0.18em] uppercase rounded-sm hover:bg-white hover:text-nova-black transition-colors cursor-pointer"
+                    >
+                        SEND ANOTHER ENQUIRY
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 8. CONTACT SECTION ==================== -->
+        <section id="contact" class="max-w-5xl mx-auto px-6 sm:px-10 lg:px-12 py-28 sm:py-36 text-center">
+            <p class="text-[11px] font-bold tracking-[0.35em] text-nova-grey uppercase">
+                LET'S CREATE SOMETHING
+            </p>
+
+            <h2 class="mt-5 mb-6 text-4xl sm:text-6xl md:text-7xl font-black leading-[1.02] tracking-tight text-nova-black uppercase">
+                YOUR IDEA.<br>
+                OUR CREATION.
+            </h2>
+
+            <p class="text-base sm:text-lg text-nova-grey mb-10 max-w-md mx-auto">
+                Have a project in mind? Let's connect.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a
+                    href="mailto:novafounder8@gmail.com"
+                    class="w-full sm:w-auto px-8 py-4 bg-nova-black text-white text-xs font-bold tracking-[0.18em] uppercase rounded-sm hover:bg-neutral-800 transition-colors"
+                >
+                    CONTACT NOVA STUDIO
+                </a>
+
+                <a
+                    href="https://wa.me/27703390719"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-full sm:w-auto px-8 py-4 border border-nova-black text-nova-black text-xs font-bold tracking-[0.18em] uppercase rounded-sm hover:bg-nova-black hover:text-white transition-colors"
+                >
+                    CHAT ON WHATSAPP
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== 9. FOOTER ==================== -->
+    <footer class="bg-nova-black text-white pt-16 pb-12 px-6 sm:px-10 lg:px-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 pb-12 border-b border-neutral-800">
+                <!-- Footer Brand -->
+                <a href="#home" class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-white" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
+                        <path d="M50 0C50 27.6142 27.6142 50 0 50C27.6142 50 50 72.3858 50 100C50 72.3858 72.3858 50 100 50C72.3858 50 50 27.6142 50 0Z"/>
+                    </svg>
+                    <span class="text-xl font-black tracking-[0.25em]">NOVA</span>
+                </a>
+
+                <!-- Footer Navigation -->
+                <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-xs font-semibold tracking-[0.15em] text-neutral-300">
+                    <a href="#home" class="hover:text-white transition-colors">Home</a>
+                    <a href="#services" class="hover:text-white transition-colors">Services</a>
+                    <a href="#portfolio" class="hover:text-white transition-colors">Portfolio</a>
+                    <a href="#about" class="hover:text-white transition-colors">About</a>
+                    <a href="#enquiry" class="hover:text-white transition-colors">Enquiry</a>
+                    <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+                </div>
+
+                <!-- Tagline -->
+                <p class="text-xs tracking-[0.18em] text-neutral-400 uppercase">
+                    Creativity. Precision. Impact.
+                </p>
+            </div>
+
+            <div class="pt-8 text-center">
+                <p class="text-xs text-neutral-500 tracking-wider">
+                    &copy; 2026 NOVA Studio. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== INTERACTIVE JAVASCRIPT ==================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            /* 1. Mobile Menu Drawer Toggle */
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileDrawer = document.getElementById('mobileDrawer');
+            const menuIconOpen = document.getElementById('menuIconOpen');
+            const menuIconClose = document.getElementById('menuIconClose');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            function toggleMobileMenu(forceClose = false) {
+                const isCurrentlyOpen = !mobileDrawer.classList.contains('hidden');
+                const shouldOpen = forceClose ? false : !isCurrentlyOpen;
+
+                if (shouldOpen) {
+                    mobileDrawer.classList.remove('hidden');
+                    menuIconOpen.classList.add('hidden');
+                    menuIconClose.classList.remove('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                } else {
+                    mobileDrawer.classList.add('hidden');
+                    menuIconOpen.classList.remove('hidden');
+                    menuIconClose.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                }
+            }
+
+            mobileMenuBtn.addEventListener('click', () => toggleMobileMenu());
+
+            mobileNavLinks.forEach((link) => {
+                link.addEventListener('click', () => toggleMobileMenu(true));
+            });
+
+            /* 2. Portfolio "INQUIRE SIMILAR" Service Pre-selection */
+            const projectTypeSelect = document.getElementById('projectType');
+            const inquireButtons = document.querySelectorAll('.inquire-similar-btn');
+            const enquiryForm = document.getElementById('enquiryForm');
+            const enquiryConfirmation = document.getElementById('enquiryConfirmation');
+
+            inquireButtons.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const targetService = btn.getAttribute('data-service');
+                    // Ensure form is visible in case a previous confirmation was active
+                    enquiryConfirmation.classList.add('hidden');
+                    enquiryForm.classList.remove('hidden');
+
+                    if (targetService && projectTypeSelect) {
+                        projectTypeSelect.value = targetService;
+                    }
+                });
+            });
+
+            /* 3. Interactive Project Enquiry Form Submission & Reset */
+            const formError = document.getElementById('formError');
+            const confirmedName = document.getElementById('confirmedName');
+            const confirmedService = document.getElementById('confirmedService');
+            const confirmedEmail = document.getElementById('confirmedEmail');
+            const resetEnquiryBtn = document.getElementById('resetEnquiryBtn');
+
+            enquiryForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                formError.classList.add('hidden');
+
+                const nameValue = document.getElementById('clientName').value.trim();
+                const emailValue = document.getElementById('clientEmail').value.trim();
+                const serviceValue = projectTypeSelect.value;
+                const detailsValue = document.getElementById('projectDetails').value.trim();
+
+                // Validation checks
+                if (!nameValue || !emailValue || !serviceValue || !detailsValue) {
+                    formError.textContent = 'Please complete all required fields before submitting your enquiry.';
+                    formError.classList.remove('hidden');
+                    return;
+                }
+
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(emailValue)) {
+                    formError.textContent = 'Please enter a valid email address.';
+                    formError.classList.remove('hidden');
+                    return;
+                }
+
+                // Populate and display confirmation state
+                const selectedOptionText = projectTypeSelect.options[projectTypeSelect.selectedIndex].text;
+                confirmedName.textContent = nameValue;
+                confirmedService.textContent = selectedOptionText;
+                confirmedEmail.textContent = emailValue;
+
+                enquiryForm.classList.add('hidden');
+                enquiryConfirmation.classList.remove('hidden');
+            });
+
+            resetEnquiryBtn.addEventListener('click', () => {
+                enquiryForm.reset();
+                formError.classList.add('hidden');
+                enquiryConfirmation.classList.add('hidden');
+                enquiryForm.classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
+```
